@@ -38,6 +38,7 @@ timezone: Asia/Tokyo
 future: true
 lang: ja
 author: mmktomato
+google_analytics: UA-112740987-1
 
 exclude:
   - Gemfile
