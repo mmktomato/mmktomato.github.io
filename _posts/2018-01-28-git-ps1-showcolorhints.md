@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "git-prompt.sh と GIT_PS1_SHOWCOLORHINTS"
+tags: git shell
 ---
 
 シェルのプロンプトに git リポジトリのブランチ名(やその他の情報)を表示したいときには `git-prompt.sh` を使います。
