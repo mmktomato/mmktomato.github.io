@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Room の TypeConverters アノテーションはプライマリコンストラクタの引数に付けられない"
+description: "Android の Room Persistence Library の TypeConverters アノテーションを Kotlin で使うときの注意。"
 tags: android room kotlin
 ---
 

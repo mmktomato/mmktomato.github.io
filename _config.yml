@@ -22,6 +22,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: high_beamer
+#twitter:
+#  username: high_beamer
 github_username:  mmktomato
 
 # Build settings
@@ -36,7 +38,7 @@ plugins:
 
 timezone: Asia/Tokyo
 future: true
-lang: ja
+lang: ja_JP
 author: mmktomato
 google_analytics: UA-112740987-1
 

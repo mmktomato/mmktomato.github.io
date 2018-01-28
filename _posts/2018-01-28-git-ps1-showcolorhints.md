@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "git-prompt.sh と GIT_PS1_SHOWCOLORHINTS"
+description: "git-prompt.sh と GIT_PS1_SHOWCOLORHINTS の使い方について。"
 tags: git shell
 ---
 

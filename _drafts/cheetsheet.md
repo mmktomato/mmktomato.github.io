@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  My Cheetsheet
+description: "This post is a cheetsheet for me."
 date:   9999-12-31 23:59:59 +0900
 #categories: cat1 cat2
 tags: tag1 tag2
