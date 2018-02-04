@@ -3,6 +3,24 @@
 
 @import "{{ site.theme }}";
 
+$m-main-bg-color: #EEEEFF !default;
+$m-post-bg-color: white !default;
+$m-post-fg-color: black !default;
+$m-head-bg-color: #424242 !default;
+$m-head-fg-color: white !default;
+$m-foot-bg-color: #C6C6C6 !default;
+
+@mixin m-post-item() {
+    color: $m-post-fg-color;
+    background-color: $m-post-bg-color;
+    padding: 2em;
+}
+
+/* for IE 11 */
+main {
+    display: block;
+}
+
 div.footnotes {
     font-size: 80%;
     margin-top: 3em;
@@ -11,5 +29,29 @@ div.footnotes {
 code {
     font-family: SFMono-Regular, Consolas, Menlo, monospace;
     font-size: 90%;
+}
+
+.page-content {
+    background-color: $m-main-bg-color;
+}
+
+.post-list > li {
+    @include m-post-item();
+}
+
+.post-content {
+    @include m-post-item();
+}
+
+.site-header,
+.site-footer {
+    background-color: $m-head-bg-color;
+}
+
+.site-title,
+.site-title:visited,
+.site-title:hover,
+.site-footer * {
+    color: $m-head-fg-color;
 }
 
