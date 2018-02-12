@@ -19,7 +19,7 @@ title: もやもやプログラミング2
 description: >- # this means to ignore newlines until "baseurl:"
   プログラミング・ソフトウェア開発に関する技術ブログです。
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://mmktomato.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: high_beamer
 #twitter:
 #  username: high_beamer
@@ -37,7 +37,7 @@ plugins:
 
 timezone: Asia/Tokyo
 future: true
-lang: ja_JP
+lang: ja
 author: mmktomato
 google_analytics: UA-112740987-1
 
