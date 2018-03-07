@@ -5,7 +5,7 @@ description: "SSH プロトコルを使って Git にアクセスする方法で
 tags: git ssh
 ---
 
-Git を使う会社に転職しまして。さっそく `git clone hoge@hogehoge.git` したら怒られました。
+Git を使う会社に転職しまして。さっそく `git clone hoge@example.com:/hoge/hoge.git` したら怒られました。
 
 ```
 Permission denied (publickey).
@@ -53,8 +53,24 @@ $ ls ~/.ssh
 id_rsa   id_rsa.pub
 ```
 
+`id_rsa` が秘密鍵、 `id_rsa.pub` が公開鍵です。
+
 ## 公開鍵の登録
 
+`id_rsa.pub` の内容をコピーしてサーバーに登録します。登録の方法はサービスによって違うと思いますが、 GitHub なら↓のような感じです。
+
+[Generating a new SSH key and adding it to the ssh-agent](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+
+## 疎通確認と clone
+
+以下のコマンドで Permission denied 言われなければOKです。リポジトリを clone できるはず。
+
+```bash
+$ ssh -T git@github.com
+```
+
+しかし、キーペアをデフォルト以外の名前にした場合はまだ Permission denied と言われてしまうと思います。
+
+## キーペアをデフォルト以外の名前にした場合
 
 ここからここから
-
