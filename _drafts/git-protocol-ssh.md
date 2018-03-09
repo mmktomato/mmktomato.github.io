@@ -17,7 +17,7 @@ and the repository exists.
 
 SSH プロトコルでアクセスするのに鍵の登録・設定をしていない事が原因でした。今まで https でしか Git を使ったことがなかったんですね。なので今回は Git を SSH で使う設定のメモです。
 
-キーペアのファイル名をデフォルト以外にした場合に必要な設定もメモしておきます。
+キーペアをデフォルト以外のパスに作った場合に必要な設定もメモしておきます。
 
 ## キーペアの生成
 
@@ -31,7 +31,7 @@ $ ssh-keygen -t rsa -b 4096
 
 [^1]: RSA 鍵 && ビット長を省略した場合は 2048 bit になるようです。(Ubuntu 16.04 (WSL) の man で確認)
 
-次に鍵を保存するファイル名を入力します。
+次に鍵を保存するファイルパスを入力します。
 
 ```
 Enter file in which to save the key (/Users/foobar/.ssh/id_rsa):
@@ -39,7 +39,7 @@ Enter file in which to save the key (/Users/foobar/.ssh/id_rsa):
 
 デフォルト値 (例の場合は `/Users/foobar/.ssh/id_rsa`) から変更する場合はここで任意のパスを入力します。その場合は別途設定が必要です。(後述)
 
-あとはパスフレーズが必要なら入力します。
+最後にパスフレーズを入力します。不要なら入力せずに進みます。
 
 ```
 Enter passphrase (empty for no passphrase):
@@ -57,20 +57,38 @@ id_rsa   id_rsa.pub
 
 ## 公開鍵の登録
 
-`id_rsa.pub` の内容をコピーしてサーバーに登録します。登録の方法はサービスによって違うと思いますが、 GitHub なら↓のような感じです。
+`id_rsa.pub` の内容をコピーしてサーバーに登録します。登録の方法はサービスによって違うと思いますが、 GitHub なら以下のようにします。
 
 [Generating a new SSH key and adding it to the ssh-agent](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
 
-## 疎通確認と clone
+## 疎通確認とクローン
 
-以下のコマンドで Permission denied 言われなければOKです。リポジトリを clone できるはず。
+以下のコマンドで Permission denied 言われなければOKです。`git clone` もできるはず。
 
 ```bash
 $ ssh -T git@github.com
 ```
 
-しかし、キーペアをデフォルト以外の名前にした場合はまだ Permission denied と言われてしまうと思います。
+しかし、キーペアをデフォルト以外のパスに作った場合はまだ Permission denied と言われてしまうと思います。
 
-## キーペアをデフォルト以外の名前にした場合
+## キーペアをデフォルト以外のパスに作った場合
+
+デフォルトの `~/.ssh/id_rsa` 以外のパスにした場合[^2]、以下のどちらかの設定が必要です。
+
+[^2]: RSA 鍵の場合のデフォルトパスです。他の暗号方式の場合は変わってくると思います。知らんけど。
+
+- `ssh-agent` にどのキーを使うか教えてあげる
+- `~/.ssh/config` に設定を書く
+
+### ssh-agent にどのキーを使うか教えてあげる
+
+```bash
+$ eval "$(ssh-agent -s)"
+$ ssh-add ~/.ssh/id_rsa_hoge
+```
+
+ただしターミナルセッション毎の設定なので、必要なら `.bash_profile` 等に書きましょう。私はあんまり好きじゃない設定です。
+
+### ~/.ssh/config に設定を書く
 
 ここからここから
