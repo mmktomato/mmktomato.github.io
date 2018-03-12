@@ -15,9 +15,9 @@ Please make sure you have the correct access rights
 and the repository exists.
 ```
 
-SSH プロトコルでアクセスするのに鍵の登録・設定をしていない事が原因でした。今まで https でしか Git を使ったことがなかったんですね。なので今回は Git を SSH で使う設定のメモです。
+SSH プロトコルでアクセスするのに鍵の登録・設定をしていない事が原因でした。(今まで https でしか Git を使ったことがなかった)
 
-キーペアをデフォルト以外のパスに作った場合に必要な設定もメモしておきます。
+なので今回は Git を SSH で使う設定のメモです。キーペアをデフォルト以外のパスに作った場合に必要な設定もメモしておきます。
 
 ## キーペアの生成
 
@@ -82,13 +82,26 @@ $ ssh -T git@github.com
 
 ### ssh-agent にどのキーを使うか教えてあげる
 
+以下のコマンドを実行します。
+
 ```bash
 $ eval "$(ssh-agent -s)"
-$ ssh-add ~/.ssh/id_rsa_hoge
+$ ssh-add ~/.ssh/id_rsa_hoge  # 秘密鍵のパス
 ```
 
 ただしターミナルセッション毎の設定なので、必要なら `.bash_profile` 等に書きましょう。私はあんまり好きじゃない設定です。
 
 ### ~/.ssh/config に設定を書く
 
-ここからここから
+もしくは `~/.ssh/config` に以下の設定を書きます。
+
+```
+Host example.com
+  HostName example.com
+  IdentityFile ~/.ssh/id_rsa_hoge  # 秘密鍵のパス
+  User hoge
+```
+
+こっちの方が `.bash_profile` 等よりも役割が明確なファイルなので好ましいと思います。
+
+これで SSH プロトコルで Git を 使えるようになりました。
