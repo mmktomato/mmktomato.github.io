@@ -27,3 +27,11 @@ With `_drafts` if you want to build drafts.
 $ bundle exec jekyll serve --drafts
 ```
 
+# Misc
+
+## Show diff about customized files.
+
+```bash
+$ diff -ur -x README.md -x assets vendor/bundle/ruby/[RUBY_VER]/gems/minima-[MINIMA-VER] .
+```
+
