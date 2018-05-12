@@ -63,9 +63,13 @@ if s:isWsl() && executable('AutoHotkeyU64.exe')
 endif
 ```
 
-`AutoHotkeyU64` には Windows のパス形式で渡す必要があります。`wslpath` コマンドが使えるようになったら WSL 側に置いたスクリプトを Linux のパス形式で渡せるようになりますが、それはまた別のお話。[^2]
+`AutoHotkeyU64` には Windows のパス形式で渡す必要があります。~~`wslpath` コマンドが使えるようになったら WSL 側に置いたスクリプトを Linux のパス形式で渡せるようになりますが、それはまた別のお話。~~
 
-[^2]: Windows10 の次期大型アップデート(RS4)で使えるようになる予定です。
+#### 2018-05-12 追記
+
+`wslpath` コマンドでは Linux 側ファイルシステムのパスは変換しないんだそうです。これは「Linux 側ファイルシステムに置いてあるファイルを Windows アプリケーションで編集してはいけない」という前提に起因しているようです。
+
+[wslpath command does not return the windows path for home directory](https://github.com/Microsoft/WSL/issues/3146)
 
 ## 結果
 
