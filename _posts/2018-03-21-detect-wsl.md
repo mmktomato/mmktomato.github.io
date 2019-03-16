@@ -3,6 +3,7 @@ layout: post
 title: "[shell] WSL かどうかを判別する"
 description: "WSL かどうかを判別する方法です。"
 tags: wsl shell bash
+redirect_to: "https://moyapro.com/2018/03/21/detect-wsl/"
 ---
 
 シェル内で WSL で動いているかどうかを判別する方法をいくつかまとめました。確認した環境は以下のとおりです。
