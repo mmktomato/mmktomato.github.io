@@ -3,6 +3,7 @@ layout: post
 title: "Robolectric を使った JUnit のパラメタライズドテスト"
 description: "JUnit で Robolectric を使いながらパラメタライズドテストを書く方法。"
 tags: android junit robolectric kotlin
+redirect_to: "https://moyapro.com/2018/02/14/robolectric-parameterized-test/"
 ---
 
 通常 JUnit でパラメタライズドテストを書くには `Theories` テストランナーや `Parametarized` テストランナーを利用します。
