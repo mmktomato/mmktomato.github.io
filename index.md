@@ -4,6 +4,7 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
 list_title: "Blog Posts"
+redirect_to: "https://moyapro.com"
 ---
 
 <link rel="stylesheet" href="{{ "/assets/index.css" | relative_url }}">
