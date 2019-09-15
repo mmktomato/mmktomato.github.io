@@ -2,29 +2,36 @@
 
 [https://mmktomato.github.io/](https://mmktomato.github.io/)
 
-# Local Build
-
-In WSL(Ubuntu),
+# Build
 
 ```bash
 sudo apt install ruby-dev zlib1g-dev libcurl3 libffi-dev
-```
-
-```bash
 $ git clone https://github.com/mmktomato/mmktomato.github.io.git
 $ bundle install --path vendor/bundle
+
+# or
+
+docker build -t my/blog .
 ```
 
-Run,
+# Run
 
 ```bash
 $ bundle exec jekyll serve
+
+# or
+
+docker run --rm -p 4000:4000 my/blog
 ```
 
 With `_drafts` if you want to build drafts.
 
 ```bash
 $ bundle exec jekyll serve --drafts
+
+# or
+
+docker run --rm -p 4000:4000 my/blog --drafts
 ```
 
 # Misc
